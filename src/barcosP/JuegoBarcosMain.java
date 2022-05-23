@@ -6,7 +6,7 @@ public class JuegoBarcosMain {
 		// TODO Auto-generated method stub
 		
 		JuegoBarcos hundir = new JuegoBarcos();
-		
+		System.out.println("Hola");
 		hundir.ejecutarJuego();
 
 	}
