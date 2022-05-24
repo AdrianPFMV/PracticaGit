@@ -28,9 +28,9 @@ public class JuegoBarcos {
 	public JuegoBarcos() {
 		super();
 
-		// Defino el tamaño del tablero
+		// Defino el tamaÃ±o del tablero
 		tableroBarcos = new char[10][10];
-		// Defino el tamaño del tablero
+		// Defino el tamaÃ±o del tablero
 		tableroDisparos = new char[10][10];
 		// Inicializamos las casillas
 		inicializarJuego();
@@ -156,7 +156,7 @@ public class JuegoBarcos {
 	}
 
 	/**
-	 * Posiciona en el tablero un barco de ese tamaño aleatoriamente
+	 * Posiciona en el tablero un barco de ese tamaÃ±o aleatoriamente
 	 * 
 	 * @param tamano
 	 * @return
@@ -175,7 +175,7 @@ public class JuegoBarcos {
 
 		int posX = posInicialX;
 		int posY = posInicialY;
-		// Dirección en la cual vamos a dibujar el barco
+		// DirecciÃ³n en la cual vamos a dibujar el barco
 		int direccion = this.generarDireccion();
 
 		// Comprobamos que alrededor de las posiciones del barco
@@ -229,102 +229,7 @@ public class JuegoBarcos {
 					break;
 				case DERECHA:
 					posX++;
-					break;
-				case IZQUIERDA:
-					posX--;
-					break;
-				}
-				// Controlamos que la posicion del barco siguiente
-				// Sea fuera del array
-			} catch (ArrayIndexOutOfBoundsException ae) {
-				return false;
-			}
-
-		} // FINALIZAMOS DE COMPROBAR LAS POSICIONES DEL BARCO
-
-		// Reseteamos posx y posy a las posiciones iniciales del barco
-		posX = posInicialX;
-		posY = posInicialY;
-
-		// Dibujamos el barco
-		for (int i = 0; i < tamano; i++) {
-			// Dibujamos el barco
-			tableroBarcos[posX][posY] = BARCO;
-
-			// Pasamos a la siguiente posicion
-			switch (direccion) {
-			case ARRIBA:
-				posY--;
-				break;
-			case ABAJO:
-				posY++;
-				break;
-			case DERECHA:
-				posX++;
-				break;
-			case IZQUIERDA:
-				posX--;
-				break;
-			}
-
-		}
-
-		return resultado;
-
-	}
-
-	public void inicializarJuego() {
-
-		// Recorremos los 10 arrays
-		for (int i = 0; i < tableroBarcos.length; i++) {
-
-			// barcosNavegando[i] es un array, lo recorremos
-			for (int j = 0; j < tableroBarcos[i].length; j++) {
-				// Inicializo a agua todas las posiciones
-				tableroBarcos[i][j] = this.AGUA;
-
-			}
-
-		}
-
-		// Recorremos los 10 arrays
-		for (int i = 0; i < tableroDisparos.length; i++) {
-
-			// barcosNavegando[i] es un array, lo recorremos
-			for (int j = 0; j < tableroDisparos[i].length; j++) {
-				// Inicializo a agua todas las posiciones
-				tableroDisparos[i][j] = this.AGUA;
-
-			}
-
-		}
-		// Rellenamos de barcos el tablero objetivo
-		rellenarTablero();
-
-	}
-
-	/**
-	 * Recibe unas coordenadas y dispara, mostrando en nuestro Mapa de juego si se
-	 * ha acertado o no
-	 * 
-	 * @param posX
-	 * @param posY
-	 */
-	public void disparo(int posX, int posY) {
 		
-		if (posX >= 0 && posX <= 9 && posY >= 0 && posY <= 9)
-
-			switch (tableroBarcos[posX][posY]) {
-
-			case AGUA:
-				tableroDisparos[posX][posY] = DISPARO;
-				break;
-				
-			case BARCO:
-				tableroDisparos[posX][posY] = TOCADO;
-				break;
-	
-			}
 
 	}
 
